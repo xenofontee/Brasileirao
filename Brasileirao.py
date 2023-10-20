@@ -1,6 +1,12 @@
 import requests
 import json
 
+
+def pretty_json(json_data):  # Imprime um objeto JSON formatado de forma legível.
+    print(json.dumps(json_data, indent=4))
+
+
+def brasileirao_tabela():  # define a função da tabela do campeonato brasileiro
     URL = 'https://api.api-futebol.com.br/v1/campeonatos/10/tabela'
     token = 'SuaChaveDeAPIAqui'
     headers = {'Authorization': f'Bearer {token}'}
@@ -11,10 +17,11 @@ import json
         pretty_json(data)
         # print(data)
     else:
-        print(f"A solicitação GET falhou com o código de resposta {response.status_code}")
+        print(
+            f"A solicitação GET falhou com o código de resposta {response.status_code}")  # lança exceção se o status code for diferente de 200
 
 
-def BRASILEIRAO_ARTILHARIA():  # define a função da artilharia do campeonato brasileiro
+def brasileirao_artilharia():  # define a função da artilharia do campeonato brasileiro
     URL = 'https://api.api-futebol.com.br/v1/campeonatos/10/artilharia'
     token = 'SuaChaveDeAPIAqui'
     headers = {'Authorization': f'Bearer {token}'}
@@ -25,7 +32,7 @@ def BRASILEIRAO_ARTILHARIA():  # define a função da artilharia do campeonato b
         pretty_json(data)
         # print(data)
     else:
-        print(f"A solicitação GET falhou com o código de resposta {response.status_code}") # lança exceção se o status code for diferente de 200
+        print(f"A solicitação GET falhou com o código de resposta {response.status_code}")
 
 
 print("Bem-vindo ao Script do BRASILEIRÃO")
