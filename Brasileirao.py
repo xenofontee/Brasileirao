@@ -4,6 +4,7 @@ import os
 
 key = os.getenv("API_TOKEN")
 
+
 def pretty_json(json_data):  # Imprime um objeto JSON formatado de forma legível.
     print(json.dumps(json_data, indent=4))
 
@@ -37,7 +38,6 @@ def brasileirao_artilharia():  # define a função da artilharia do campeonato b
 
 print("Bem-vindo ao Script do BRASILEIRÃO")
 user_input = input("Digite 1 para TABELA e 2 para ARTILHARIA: ")
-
 
 if user_input == '1':
     brasileirao_tabela()
