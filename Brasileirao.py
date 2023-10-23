@@ -1,7 +1,6 @@
 import requests
 import json
 import os
-
 import requests.exceptions
 
 key = os.getenv("API_TOKEN")
