@@ -5,6 +5,8 @@ import requests.exceptions
 
 key = os.getenv("API_TOKEN")
 
+API_URL = "https://api.api-futebol.com.br/v1/campeonatos/10/"
+
 
 def authenticate():  # Autentica o usuário na API com o token de acesso.
     headers = {'Authorization': f'Bearer {key}'}
@@ -15,7 +17,8 @@ def pretty_json(json_data):  # Imprime um objeto JSON formatado de forma legíve
     print(json.dumps(json_data, indent=4))
 
 
-def get_data(url):  # Faz uma requisição GET à API e retorna os dados em formato JSON.
+def get_data(endpoint):  # Faz uma requisição GET à API e retorna os dados em formato JSON.
+    url = API_URL + endpoint
     headers = authenticate()
     response = requests.get(url, headers=headers)
     response.raise_for_status()  # lança exceção se a resposta não for bem-sucedida
@@ -23,18 +26,18 @@ def get_data(url):  # Faz uma requisição GET à API e retorna os dados em form
 
 
 def brasileirao_tabela():  # define a função da tabela do campeonato brasileiro
-    URL = 'https://api.api-futebol.com.br/v1/campeonatos/10/tabela'
+    endpoint = 'tabela'
     try:
-        data = get_data(URL)
+        data = get_data(endpoint)
         pretty_json(data)
     except requests.exceptions.HTTPError as e:
         print(f'A solicitação GET falhou com o código de resposta {e.response.status_code}')
 
 
 def brasileirao_artilharia():  # define a função da artilharia do campeonato brasileiro
-    URL = 'https://api.api-futebol.com.br/v1/campeonatos/10/artilharia'
+    endpoint = 'artilharia'
     try:
-        data = get_data(URL)
+        data = get_data(endpoint)
         pretty_json(data)
     except requests.exceptions.HTTPError as e:
         print(f'A solicitação GET falhou com o código de resposta {e.response.status_code}')
