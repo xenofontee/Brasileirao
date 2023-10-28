@@ -17,8 +17,7 @@ pip install requests
 1.) Clone este repositório em sua máquina:
 git clone https://github.com/seuusuario/seurepositorio.git
 
-2.) Edite o arquivo config.py e insira sua chave de API:
-TOKEN = "SuaChaveDeAPIAqui"
+2.) Insira sua chave API
 
 Uso
 
